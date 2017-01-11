@@ -1,17 +1,4 @@
-.el-form-item__content:before, .el-form-item__content:after{
-    display: table;
-    content: "";
-}
-.el-form-item__content:after{
-    clear: both;
-}
-.el-form-item:before, .el-form-item:after{
-    display: table;
-    content: "";
-}
-.el-form-item:after{
-    clear: both;
-}@charset "UTF-8";
+@charset "UTF-8";
 :root{
     /* Transition
   -------------------------- */
@@ -129,6 +116,15 @@
     margin-bottom: 22px;
 }
 
+.el-form-item:before, .el-form-item:after{
+    display: table;
+    content: "";
+}
+
+.el-form-item:after{
+    clear: both;
+}
+
 .el-form-item .el-form-item{
     margin-bottom: 0;
 }
@@ -164,6 +160,15 @@
     line-height: 36px;
     position: relative;
     font-size: 14px;
+}
+
+.el-form-item__content:before, .el-form-item__content:after{
+    display: table;
+    content: "";
+}
+
+.el-form-item__content:after{
+    clear: both;
 }
 
 .el-form-item__error{

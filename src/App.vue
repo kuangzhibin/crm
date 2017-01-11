@@ -21,12 +21,12 @@
 		<div id="main" class="">
 					<!--左侧导航菜单-->
 					<div id="navMenu" class="">
-						<Navmenu v-on:handleSelect="addTabnav"></Navmenu>
+						<Navmenu v-on:handleSelect="addTabnav" :activeName="this.activeTab"></Navmenu>
 					</div>
 			 <!--右侧tab切换-->
 					<div id="navTab" class="">
 		
-						<el-tabs type="card" v-bind:active-name="activeTab">
+						<el-tabs type="card" :active-name="activeTab" @tab-click="handleClick" @tab-remove="handleRemove">
 							<el-tab-pane name="firsticon">
 								<span slot="label"><i class="icon iconfont icon-dashboard"></i></span>
 							</el-tab-pane>
@@ -53,11 +53,27 @@
 
 //导航菜单menu-item与tabnav映射{'index:x':'对应的组件名称'}-----x位用于区分同名菜单项
 	var menuList = {
-		'客户管理:': 'User',
-		'跟进中客户:': 'User',
-		'权限设置:': 'Hello',
-		'新增客户:':'Newcreateuser',
-		'新增客户:2':'User'
+		'客户管理:1': 'User',
+		'新增客户:1:': 'User',
+		'跟进中客户:1': 'Hello',
+		'客户管理:2':'Newcreateuser',
+		'检查重复客户:1':'User',
+		'停TURN:1':'',
+		'预约到访查询:1':'',
+		'分配客户:1':'',
+		'公海客户管理:1':'',
+		'活动管理:1':'',
+		'关怀管理:1':'',
+		'新增客户:2':'',
+		'预约到访客户:1':'',
+		'跟进中客户:2':'',
+		'客户管理:3':'',
+		'检查重复客户:2':'',
+		'停TURN:2':'',
+		'分配客户:2':'',
+		'关怀管理:2':'',
+		'权限设置:1':'',
+		'规则设置:1':''
 	}
 	
 	
@@ -67,7 +83,8 @@
 			return {
 				tabs: [],
 				menu: menuList,
-				activeTab:'firsticon'
+				activeTab:'firsticon',
+				activeMenu:''
 
 			}
 		},
@@ -80,26 +97,35 @@
 		methods: {
 
 			addTabnav(key) {
-//			console.log("已经选择" + key);
-			  var _name=key.split(":")[0];
-			 for(var k in this.tabs){
-			 	if(key==this.tabs[k].onlykey){
-			 		console.log(this.tabs[k].onlykey)
-			 		return;
-			 	}
-			 }
+	//			console.log("已经选择" + key);
+			  	var _name=key.split(":")[0];
+				for(var k in this.tabs){
+				 	if(key==this.tabs[k].onlykey){
+//				 		console.log(this.tabs[k].onlykey)
+				 		return;
+				 	}
+				}
 			
 				this.tabs.push({
-					name: _name,
+					name: key,
 					title: _name,
 					onlykey:key,
 					content: this.menu[key]
 				});
-				this.activeTab=_name;
+				this.activeTab=key;
 				
 			},
 			disNavmenu(){
 				console.log("你好")
+			},
+			handleClick(tab, event){
+//				console.log("xuanzhong"+tab, event.target.innerText)
+//				console.log("xuanzhong"+tab, event)
+				this.activeTab="权限设置:1"   //唯一与要改变的值  获取当前的index
+				
+			},
+			handleRemove(tab){
+				console.log("删除"+tab)
 			}
 		}
 

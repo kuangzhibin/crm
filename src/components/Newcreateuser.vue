@@ -28,7 +28,7 @@
 				</div>
 				<div class="flx-childs">
 					<el-form-item label="年级" required>
-						<el-select v-model="form.region" placeholder="请选择客户年级">
+						<el-select v-model="form.grade" placeholder="请选择客户年级">
 							<el-option label="区域一" value="shanghai"></el-option>
 							<el-option label="区域二" value="beijing"></el-option>
 						</el-select>
@@ -36,7 +36,7 @@
 				</div>
 				<div class="flx-childs">
 					<el-form-item label="信息渠道" required>
-						<el-select v-model="form.region" placeholder="信息渠道">
+						<el-select v-model="form.access" placeholder="信息渠道">
 							<el-option label="区域一" value="shanghai"></el-option>
 							<el-option label="区域二" value="beijing"></el-option>
 						</el-select>
@@ -44,7 +44,7 @@
 				</div>
 				<div class="flx-childs">
 					<el-form-item label="学校">
-						<el-select v-model="form.region" placeholder="学校">
+						<el-select v-model="form.school" placeholder="学校">
 							<el-option label="区域一" value="shanghai"></el-option>
 							<el-option label="区域二" value="beijing"></el-option>
 						</el-select>
